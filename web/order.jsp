@@ -161,7 +161,7 @@
             </div>
         </div>
     </div>
-    <p class="dibu">家居电子商城&copy;2000-2022-公司版权所有</p></div>
+    <p class="dibu">家居电子商城&copy;2022 公司版权所有</p></div>
 <script src="js/jquery-1.12.4.min.js" type="text/javascript" charset="utf-8"></script>
 <script src="js/public.js" type="text/javascript" charset="utf-8"></script>
 <script src="js/pro.js" type="text/javascript" charset="utf-8"></script>

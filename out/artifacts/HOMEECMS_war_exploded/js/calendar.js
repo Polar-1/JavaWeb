@@ -18,7 +18,7 @@ this.date = null;
 this.mouseOffset = null;
 this.dateInput = null;
 this.timer = null;	
-};
+}
 Calendar.prototype.toString = function()
 {   
 var str = this.getStyle();
@@ -79,7 +79,7 @@ return str;
 Calendar.prototype.getBodyBar = function()
 {
 var str = '<table Author="alin_bar" id="cdrBodyBar" class="cdrBodyBar" style="cursor:move;" cellSpacing="2" cellPadding="0"><tr Author="alin_bar" align="center">\n';
-var day = new Array('日','一','二','三','四','五','六');
+var day = ['日','一','二','三','四','五','六'];
 for(i = 0; i < 7; i++)
 {
 str += '<td Author="alin_bar">' + day[i] + '</td>\n';     
@@ -182,7 +182,7 @@ obj.style.display = "none";
 };
 Calendar.prototype.bindDate = function(date)
 {
-var _monthDays = new Array(31,30,31,30,31,30,31,31,30,31,30,31);	
+var _monthDays = [31,30,31,30,31,30,31,31,30,31,30,31];
 var _arr = date.split('-');		
 var _date = new Date(_arr[0],_arr[1]-1,_arr[2]);	
 if(isNaN(_date)) _date = new Date();	

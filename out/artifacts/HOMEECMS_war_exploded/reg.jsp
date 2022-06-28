@@ -21,11 +21,8 @@
             </a>
         </p>
         <p><input type="submit" name="" value="注册"></p>
-        <p class="txtL txt">注册即表示您同意了我们的<a href="#">
-            <使用条款和隐私策略>
-        </a></p>
         <p class="txt"><a href="login.jsp"><span></span>已有账号登录</a></p>
-        <!--<a href="#" class="off"><img src="images/temp/off.png"></a>--></form>
+    </form>
 </div>
 
 <script type="text/javascript">

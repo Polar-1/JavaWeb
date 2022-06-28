@@ -13,11 +13,9 @@
             <form action="${pageContext.request.contextPath}/loginAdminServlet" method="post">
                 <ul class="admin_items">
                     <li>
-<%--                        <label for="user">管理员帐号：</label>--%>
                         <input type="text" name="userName" placeholder="管理员帐号" required value="" id="user" size="40" class="admin_input_style" />
                     </li>
                     <li>
-<%--                        <label for="pwd">管理员密码：</label>--%>
                         <input type="password" name="passWord" placeholder="管理员密码" required value="" id="pwd" size="40" class="admin_input_style" />
                     </li>
                     <li style="padding-top: 20px;">

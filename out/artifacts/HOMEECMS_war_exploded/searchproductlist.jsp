@@ -8,16 +8,15 @@
     <link rel="stylesheet" type="text/css" href="css/public.css"/>
     <link rel="stylesheet" type="text/css" href="css/proList.css"/>
 </head>
-<body><!------------------------------head------------------------------>
+<body>
 
 <%@ include file="header.jsp" %>
 
 <div class="banner"><a href="#"><img src="${link}"/></a></div>
-<!-----------------address------------------------------->
+
 <div class="address">
     <div class="wrapper clearfix"><a href="indexServlet">首页</a><span>/</span>搜索</div>
-</div><!-------------------current---------------------->
-<!----------------proList------------------------->--%>
+</div>
 <ul class="proList wrapper clearfix">
   
   
@@ -33,15 +32,8 @@
     
     
     
-    <%--<li><a href="proDetail.html">
-        <dl>
-            <dt><img src="images/temp/pro02.jpg"></dt>
-            <dd>【静态测试】测试测试测试测试测试测试</dd>
-            <dd>￥17.90</dd>
-        </dl>
-    </a></li>--%>
 
-</ul><!----------------mask------------------->
+</ul>
 <div class="mask"></div><!-------------------mask内容------------------->
 <div class="proDets"><img class="off" src="images/temp/off.jpg"/>
     <div class="tit clearfix"><h4 class="fl">${p.product_name}</h4><span class="fr">￥17.90</span></div>
@@ -110,7 +102,7 @@
         </div>
     </div>
     <p class="dibu">
-        家居电子商城&copy;2000-2022-公司版权所有</p></div>
+        家居电子商城&copy;2022 公司版权所有</p></div>
 <script src="js/jquery-1.12.4.min.js" type="text/javascript" charset="utf-8"></script>
 <script src="js/public.js" type="text/javascript" charset="utf-8"></script>
 <script src="js/nav.js" type="text/javascript" charset="utf-8"></script>

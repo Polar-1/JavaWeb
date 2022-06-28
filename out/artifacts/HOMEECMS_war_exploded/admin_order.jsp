@@ -14,13 +14,6 @@
                 <form action="${pageContext.request.contextPath}/orderListByKeyServlet" method="post">
                     <table class="search-tab">
                         <tr>
-                            <!--   th width="120">选择分类:</th>
-                            <td>
-                                <select name="search-sort" id="">
-                                    <option value="">全部</option>
-                                    <option value="19">精品界面</option><option value="20">推荐界面</option>
-                                </select>
-                            </td-->
                             <th width="70">订单号:</th>
                             <td><input class="common-text" placeholder="关键字" required name="keywords" value="${param.keywords}" id="" type="text"></td>
                             <td><input class="btn btn-primary btn2" name="sub" value="查询" type="submit"></td>

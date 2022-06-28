@@ -132,23 +132,6 @@
                         </a><a href="${pageContext.request.contextPath}/orderDetailServlet?oid=${o.order_id}">订单详情</a></p></div>
                 </div>
             </c:forEach>
-
-
-
-
-            <%--<div class="dkuang"><p class="one">已关闭</p>
-                <div class="word clearfix">
-                    <ul class="fl clearfix">
-                        <li>2016年12月1日 18:53</li>
-                        <li>杨小黄</li>
-                        <li>订单号:5160513358520018</li>
-                        <li>在线支付</li>
-                    </ul>
-                    <p class="fr">订单金额：<span>99.00</span>元</p></div>
-                <div class="shohou clearfix"><a href="#" class="fl"><img src="img/g1.jpg"/></a>
-                    <p class="fl"><a href="#">家用创意菜盘子圆盘 釉下彩复古</a><a href="#">¥99.00×1</a></p>
-                    <p class="fr"><a href="#">交易失败</a><a href="orderxq.html">订单详情</a></p></div>
-            </div>--%>
             <div class="fenye clearfix"><a href="#"><img src="img/zuo.jpg"/></a><a href="#">1</a><a href="#"><img
                     src="img/you.jpg"/></a></div>
         </div>
@@ -189,7 +172,7 @@
             </div>
         </div>
     </div>
-    <p class="dibu">家居电子商城&copy;2000-2022-公司版权所有</p></div>
+    <p class="dibu">家居电子商城&copy;2022 公司版权所有</p></div>
 <script src="js/jquery-1.12.4.min.js" type="text/javascript" charset="utf-8"></script>
 <script src="js/public.js" type="text/javascript" charset="utf-8"></script>
 <script src="js/user.js" type="text/javascript" charset="utf-8"></script>

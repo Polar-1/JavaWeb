@@ -7,7 +7,6 @@
     <title>后台管理</title>
     <link rel="stylesheet" type="text/css" href="css/admin_common.css"/>
     <link rel="stylesheet" type="text/css" href="css/admin_main.css"/>
-<%--    <script src="https://cdn.ckeditor.com/4.14.0/full/ckeditor.js"></script>--%>
     <script src="js/ckeditor.js"></script>
 </head>
 <body>

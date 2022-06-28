@@ -15,20 +15,15 @@
                 <div class="result-title">
                     <div class="result-list">
                         <a href="${pageContext.request.contextPath}/toAddCategoryServlet"><i class="icon-font"></i>新增分类</a>
-                     
-                        <!--  a id="updateOrd" href="javascript:void(0)"><i class="icon-font"></i>更新排序</a -->
                     </div>
                 </div>
                 <div class="result-content">
                     <table class="result-tab" width="86%">
                         <tr>
-            
                             <th>ID</th>
                             <th>分类名称</th>
                             <th>操作</th>
-                           
                         </tr>
-                        
                         <c:forEach var="cate" items="${catelist}">
 
                         	 <c:if test="${cate.category_parentid == 0 }">
@@ -44,7 +39,6 @@
 				                        	<td>${zcate.category_id }</td>
 				                        	<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;｜-${zcate.category_name }</td>
 				                        	<td><a href="${pageContext.request.contextPath}/toUpdateCategoryServlet?cid=${zcate.category_id }">修改</a> <a href="javascript:catedel(${zcate.category_id })">删除</a></td>
-
 				                        </tr>
 				                      </c:if>
 		                          </c:forEach>
@@ -54,7 +48,7 @@
                         
                         <script>
                         	function catedel(id) {
-                        		if(confirm("你确认要删除这个分类吗")) {
+                        		if(confirm("确认删除这个分类?")) {
                         			location.href="${pageContext.request.contextPath}/delCategoryByIdServlet?id="+id;
                         		}
                         	}

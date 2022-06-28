@@ -40,8 +40,7 @@
         </ul>
     </div>
 </div>
-<div class="cart mt"><!-----------------logo------------------->
-    <!--<div class="logo"><h1 class="wrapper clearfix"><a href="index.html"><img class="fl" src="images/temp/logo.png"></a><img class="top" src="images/temp/cartTop01.png"></h1></div>-->
+<div class="cart mt">
     <!-----------------site------------------->
     <div class="site"><p class=" wrapper clearfix"><span class="fl">购物车</span><img class="top"
                                                                                    src="images/temp/cartTop01.png"><a
@@ -138,7 +137,7 @@
             </div>
         </div>
     </div>
-    <p class="dibu">家居电子商城&copy;2000-2022-公司版权所有</p></div><!----------------mask------------------->
+    <p class="dibu">家居电子商城&copy;2022 公司版权所有</p></div><!----------------mask------------------->
 <div class="mask"></div><!-------------------mask内容------------------->
 <div class="proDets"><img class="off" src="images/temp/off.jpg"/>
     <div class="proCon clearfix">
