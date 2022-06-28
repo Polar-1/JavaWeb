@@ -25,42 +25,53 @@ public class SelectProductList extends HttpServlet {
 
         //查询购物车数量
         HttpSession session = request.getSession();
+        //获取用户姓名
         User user = (User) session.getAttribute("name");
-
+        //初始时，购物车为空
         String cartCount = "0";
+        //实例化service层中CartService对象
         CartService service1 = new CartServiceImpl();
         if (user != null) {
+            //调用service层中的findCartCountByUserId方法获取指定userid的购物车数量
             cartCount = String.valueOf(service1.findCartCountByUserId(user.getUser_id()));
         }else {
             cartCount = "?";
         }
+        //存值
         request.setAttribute("cartCount",cartCount);
 
-
+        //获取子类id参数
         String cid = request.getParameter("cid");
         if (cid != null && !cid.trim().equals("")) {
+            //有cid
+            //实例化service层中ProductService对象
             ProductService service = new ProductServiceImpl();
+            //调用service层中findProductByCategoryCid方法
             List<Product> list = service.findProductByCategoryCid(Integer.valueOf(cid));
-
+            //存入productList属性并赋值list
             request.setAttribute("productList",list);
 
+            //实例化service层中CategoryService对象
             CategoryService service2 = new CategoryServiceImpl();
+            //调用service层中findCategoryListByCid方法
             Category c = service2.findCategoryByCid(Integer.valueOf(cid));
             System.out.println(c.getCategory_name());
             request.setAttribute("childC",c);
+            //*调用service层中findCategoryListByCid方法获取父类id
             Category f = service2.findCategoryByCid(c.getCategory_parentid());
             System.out.println(f.getCategory_name());
             request.setAttribute("fatherC",f);
 
+            //调用service层中findCategoryListByName方法
             List<Category> flist =  service2.findCategoryListByName("father");
 
             request.setAttribute("flist", flist);
-
+            //调用service层中findCategoryListByName方法
             List<Category> clist =  service2.findCategoryListByName("child");
 
             request.setAttribute("clist", clist);
 
-            //没实现分类添加图片
+            //*实现分类添加图片
             if (f.getCategory_id() == 1) {
                 request.setAttribute("link", "images/temp/banner1.jpg");
             }else if (f.getCategory_id() == 2){
@@ -75,24 +86,28 @@ public class SelectProductList extends HttpServlet {
                 request.setAttribute("link", "img/banner1.jpg");
             }
             request.getRequestDispatcher("productlist.jsp").forward(request, response);
-        }else {
-            //有fid
-            String fid = request.getParameter("fid");
-            CategoryService service2 = new CategoryServiceImpl();
 
+        }else {
+
+            //有fid
+            //获取父类id参数
+            String fid = request.getParameter("fid");
+            //实例化service层中CategoryService对象
+            CategoryService service2 = new CategoryServiceImpl();
+            //调用service层中findCategoryListByCid方法获取父类id
             Category f = service2.findCategoryByCid(Integer.valueOf(fid));
 
             request.setAttribute("fatherC",f);
-
+            //调用service层中findCategoryListByName方法
             List<Category> flist =  service2.findCategoryListByName("father");
 
             request.setAttribute("flist", flist);
-
+            //调用service层中findCategoryListByName方法
             List<Category> clist =  service2.findCategoryListByName("child");
 
             request.setAttribute("clist", clist);
 
-            //没实现分类添加图片
+            //*实现分类添加图片
             if (f.getCategory_id() == 1) {
                 request.setAttribute("link", "images/temp/banner1.jpg");
             }else if (f.getCategory_id() == 2){
@@ -106,12 +121,13 @@ public class SelectProductList extends HttpServlet {
             }else {
                 request.setAttribute("link", "img/banner1.jpg");
             }
-
+            //实例化service层中CategoryService对象
             ProductService service = new ProductServiceImpl();
+            //调用service层中findProductByCategoryFid方法
             List<Product> list = service.findProductByCategoryFid(Integer.valueOf(fid));
-
+            //存入productList属性并赋值list
             request.setAttribute("productList",list);
-
+            //请求重定向跳转为productlist.jsp
             request.getRequestDispatcher("productlist.jsp").forward(request, response);
         }
 

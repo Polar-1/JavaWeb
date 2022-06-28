@@ -30,33 +30,40 @@ public class SearchProductServlet extends HttpServlet {
         ProductService service = new ProductServiceImpl();
         //调用service层中findProductListBykey方法
         List<Product> list = service.findProductListByKey(key);
+        //存入productList属性并赋值list
         request.setAttribute("productList",list);
 
 
         //查询购物车数量
         HttpSession session = request.getSession();
+        //获取用户姓名
         User user = (User) session.getAttribute("name");
-
+        //初始时，购物车为空
         String cartCount = "0";
+        //实例化service层中CartService对象
         CartService service1 = new CartServiceImpl();
         if (user != null) {
+            //调用service层中的findCartCountByUserId方法获取指定userid的购物车数量
             cartCount = String.valueOf(service1.findCartCountByUserId(user.getUser_id()));
         }else {
             cartCount = "?";
         }
+        //存值
         request.setAttribute("cartCount",cartCount);
 
+        //实例化service层中CategoryService对象
         CategoryService service2 = new CategoryServiceImpl();
+        //调用service层中findCategoryListByname方法
         List<Category> flist =  service2.findCategoryListByName("father");
+        //存值
         request.setAttribute("flist", flist);
         List<Category> clist =  service2.findCategoryListByName("child");
         request.setAttribute("clist", clist);
 
-
-        //没实现分类添加图片
+        //*父类图片
         request.setAttribute("link", "img/banner1.jpg");
 
-
+        //请求重定向跳转为searchproductlist.jsp
         request.getRequestDispatcher("searchproductlist.jsp").forward(request, response);
 
 
