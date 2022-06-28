@@ -40,7 +40,7 @@ public class LoginServlet extends HttpServlet {
 			PrintWriter out = response.getWriter();
 			
 			out.write("<script>");
-			out.write("alert('用户登录失败！');");
+			out.write("alert('用户名或密码错误！');");
 			out.write("location.href='login.jsp'");
 			out.write("</script>");
 			out.close();
