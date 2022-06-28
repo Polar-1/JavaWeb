@@ -17,8 +17,9 @@ public class RegServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("utf-8");
         HttpSession session = request.getSession();
+        //实例化service层中UserService对象
         UserService service = new UserServiceImpl();
-
+        //获取用户名称、用户密码、验证码
         String userName = request.getParameter("userName").trim();
         String userPassword = request.getParameter("userPassword").trim();
         String enUserPassword = request.getParameter("enUserPassword".trim());
@@ -26,12 +27,12 @@ public class RegServlet extends HttpServlet {
 
         String checkcode_server = (String) session.getAttribute("CHECKCODE_SERVER");
         session.removeAttribute("CHECKCODE_SERVER");//确保验证一次性
+
         if (!verifycode.equalsIgnoreCase(checkcode_server)){
             request.setAttribute("msg","验证码错误");
             request.setAttribute("userName",userName);
             request.setAttribute("userPassword",userPassword);
             request.setAttribute("enUserPassword",enUserPassword);
-
             request.getRequestDispatcher("reg.jsp").forward(request,response);
             return;
         }else {
@@ -42,6 +43,7 @@ public class RegServlet extends HttpServlet {
                 request.setAttribute("enUserPassword",enUserPassword);
                 request.getRequestDispatcher("reg.jsp").forward(request,response);
                 return;
+
             }else {
                 User user = service.findUserByUserName(userName);
 

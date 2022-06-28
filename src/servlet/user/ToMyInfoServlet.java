@@ -19,7 +19,7 @@ import java.util.List;
 @WebServlet("/toMyInfoServlet")
 public class ToMyInfoServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        //判断用户账号是否已登录
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("name");
 
@@ -27,7 +27,7 @@ public class ToMyInfoServlet extends HttpServlet {
 
             UserService service = new UserServiceImpl();
             User newUser = service.findUserByUserId(user.getUser_id());
-
+            //创建分类服务层对象 查询分类列表后传到前台
             CategoryService service1 = new CategoryServiceImpl();
             List<Category> flist = service1.findCategoryListByName("father");
             List<Category> clist = service1.findCategoryListByName("child");

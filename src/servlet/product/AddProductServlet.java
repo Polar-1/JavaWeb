@@ -77,7 +77,7 @@ public class AddProductServlet extends HttpServlet {
 
         //前端响应
         PrintWriter out = response.getWriter();
-        //弹出警告窗口 并跳转回productListServlet
+        //弹出窗口
         out.write("<script>");
         out.write("alert('增加成功！');");
         out.write("location.href='/HOMEECMS/productListServlet'");

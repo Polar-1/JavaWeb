@@ -15,9 +15,12 @@ import java.util.List;
 @WebServlet("/userListByKeyServlet")
 public class UserListByKeyServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        //获取关键字参数值
         String keywords = request.getParameter("keywords");
-
+        //创建用户服务层对象 查询该用户后传到前台
+        //实例化service层中UserService对象
         UserService service = new UserServiceImpl();
+        //调用service层中的findUserListByKey方法
         List<User> userList =  service.findUserListByKey(keywords);
         request.setAttribute("userList",userList);
 

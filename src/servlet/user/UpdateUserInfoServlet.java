@@ -26,15 +26,16 @@ public class UpdateUserInfoServlet extends HttpServlet {
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("name");
         if (user != null) {
-
+            //获取用户id、性别、昵称参数值
             int userId = user.getUser_id();
             String sex = request.getParameter("sex");
             String nickname = request.getParameter("nickname");
-
+            //创建用户服务层对象 查询该用户后传到前台
             UserService service = new UserServiceImpl();
             service.updateInfoById(userId,sex,nickname);
-
+            //前端响应
             PrintWriter out = response.getWriter();
+            //弹出窗口
             out.write("<script>");
             out.write("alert('修改成功！');");
             out.write("location.href='toMyInfoServlet'");

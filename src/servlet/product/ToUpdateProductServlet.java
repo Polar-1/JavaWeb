@@ -30,6 +30,7 @@ public class ToUpdateProductServlet extends HttpServlet {
         //创建商品服务层对象 查询该商品后传到前台
         //实例化service层中ProductService对象
         ProductService service = new ProductServiceImpl();
+        //调用service层中findProductById方法
         Product product = service.findProductById(pId);
         request.setAttribute("p",product);
 

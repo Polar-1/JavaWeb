@@ -29,9 +29,12 @@ public class ToUserInfoServlet extends HttpServlet {
         User user = (User) session.getAttribute("name");
 
         if (user != null) {
+
+            //创建用户服务层对象 查询该用户后传到前台
             UserService service = new UserServiceImpl();
             User newUser = service.findUserByUserId(user.getUser_id());
 
+            //创建分类服务层对象 查询分类列表后传到前台
             CategoryService service1 = new CategoryServiceImpl();
             List<Category> flist = service1.findCategoryListByName("father");
             List<Category> clist = service1.findCategoryListByName("child");

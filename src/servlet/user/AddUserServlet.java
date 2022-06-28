@@ -68,13 +68,17 @@ public class AddUserServlet extends HttpServlet {
         //实例化
         User u = new User(userName,nickname,passWord,sex,"0","0",status,fileName);
         System.out.println(u);
-
+        //创建用户服务层对象 查询该用户后传到前台
+        //实例化service层中UserService对象
         UserService service = new UserServiceImpl();
+        //调用service层中addUser方法
         Boolean flag = service.addUser(u);
         if (flag) {
             response.sendRedirect(request.getContextPath()+"/userListServlet");
         }else {
+            //前端响应
             PrintWriter out = response.getWriter();
+            //弹出窗口
             out.write("<script>");
             out.write("alert('新增用户失败！');");
             out.write("</script>");

@@ -23,15 +23,18 @@ public class UpdateUserPasswordServlet extends HttpServlet {
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("name");
         if (user != null) {
+            //获取密码和再次确认密码参数值
             String p = request.getParameter("password");
             String enp = request.getParameter("enpassword");
             if (p.equals(enp)) {
+                //p=enp
                 UserService service = new UserServiceImpl();
                 service.updatePasswordById(user.getUser_id(),p);
 
                 request.getRequestDispatcher("toMyInfoServlet").forward(request,response);
 
             }else {
+                //p!=enp
                 PrintWriter out = response.getWriter();
 
                 out.write("<script>");

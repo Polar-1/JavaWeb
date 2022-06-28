@@ -23,12 +23,16 @@ import java.util.List;
 public class ToUpdateUserListServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("utf-8");
-
         response.setContentType("text/html; charset=UTF-8");
+        //获取用户id
         String UserId = request.getParameter("id");
         System.out.println(UserId);
         int uId = Integer.valueOf(UserId);
+
+        //创建用户服务层对象 查询该用户后传到前台
+        //实例化service层中UserService对象
         UserService service = new UserServiceImpl();
+        //调用service层中findUserByUserId方法
         User user = service.findUserByUserId(uId);
 
         request.setAttribute("u",user);
