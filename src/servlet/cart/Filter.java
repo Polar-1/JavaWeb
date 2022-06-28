@@ -3,7 +3,7 @@ package servlet.cart;
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
 import java.io.IOException;
-
+//过滤器
 @WebFilter(filterName = "Filter")
 public class Filter implements javax.servlet.Filter {
     public void destroy() {

@@ -22,17 +22,22 @@ public class ToCartServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=utf-8");
+
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("name");
-//        String isLogin = (String)session.getAttribute("isLogin");
-//        if (user != null && "1".equals(isLogin)) {
+
         if (user != null) {
+
+            //查询该商品的二级和一级分类
             CategoryService service1 = new CategoryServiceImpl();
             List<Category> flist = service1.findCategoryListByName("father");
             List<Category> clist = service1.findCategoryListByName("child");
             request.setAttribute("flist",flist);
             request.setAttribute("clist",clist);
 
+            //创建购物车服务层对象 查询该购物车后传到前台
+            //实例化service层中CartService对象
+            //调用findCartListByUserId方法
             CartService service = new CartServiceImpl();
             List<Cart> cartList= service.findCartListByUserId(user.getUser_id());
             request.setAttribute("cartList",cartList);

@@ -25,16 +25,17 @@ public class AddAddressServlet extends HttpServlet {
         User user = (User) session.getAttribute("name");
 
         if (user != null) {
-
+            //创建用户服务层对象 查询该用户后传到前台
+            //实例化service层中UserService对象
             UserService service = new UserServiceImpl();
             User newUser = service.findUserByUserId(user.getUser_id());
             request.setAttribute("user",newUser);
-
+            //获取用户的姓名、电话、地址参数值
             String name = request.getParameter("name");
             String phone = request.getParameter("phone");
             String address = request.getParameter("address");
             System.out.println(name+" "+phone+ " "+address);
-
+            //实例化service层中AddressService对象
             AddressService service1 = new AddressServiceImpl();
             Address a = new Address(user.getUser_id(),name,phone,address);
             service1.addAddress(a);
