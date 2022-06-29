@@ -15,7 +15,10 @@ import java.util.List;
 @WebServlet("/categoryListServlet")
 public class CategoryListServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        //创建分类服务层对象 查询该分类后传到前台
+        //实例化service层中CategoryService对象
         CategoryService service = new CategoryServiceImpl();
+        //调用findAllCategory方法
         List<Category> catelist = service.findAllCategory();
 
         request.setAttribute("catelist", catelist);

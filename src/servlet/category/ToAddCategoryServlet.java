@@ -15,6 +15,7 @@ import java.util.List;
 @WebServlet("/toAddCategoryServlet")
 public class ToAddCategoryServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
         CategoryService service = new CategoryServiceImpl();
         List<Category> flist =  service.findCategoryListByName("father");
         request.setAttribute("flist", flist);

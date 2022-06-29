@@ -17,17 +17,21 @@ public class AddCategoryServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("utf-8");
         response.setContentType("text/html; charset=UTF-8");
+
         String a = request.getParameter("parentId");
-        String b = request.getParameter("className");
+        String b = request.getParameter("categoryName");
 
         System.out.println("parentId"+a);
-        System.out.println("className"+b);
+        System.out.println("categoryName"+b);
 
+        //创建商品分类服务层对象 查询该分类后传到前台
+        //实例化对象
         Category category = new Category();
         category.setCategory_parentid(Integer.valueOf(a));
         category.setCategory_name(b);
-
+        //实例化service层中CategoryService对象
         CategoryService service = new CategoryServiceImpl();
+        //调用addCategory方法
         service.addCategory(category);
 
         PrintWriter out = response.getWriter();

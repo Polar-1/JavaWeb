@@ -16,9 +16,11 @@ public class UpdateCategoryServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("utf-8");
         response.setContentType("text/html; charset=UTF-8");
+        //获取分类编号、分类名称
         String categoryId = request.getParameter("categoryId");
         int categoryId2 = Integer.valueOf(categoryId);
         String categoryName = request.getParameter("categoryName");
+        //创建商品分类服务层对象 查询该分类后传到前台
         CategoryService service = new CategoryServiceImpl();
         service.updateCategoryName(categoryName,categoryId2);
 
